@@ -5,6 +5,9 @@ import { BASE_URL } from "../utils/constants";
 import { removeUser } from "../utils/userSlice";
 import axios from "axios";
 
+import { FaLaptopCode } from "react-icons/fa";
+import { MdFlashOn } from "react-icons/md";
+
 const Navbar = () => {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
@@ -16,15 +19,23 @@ const Navbar = () => {
       dispatch(removeUser());
       navigate("/login");
     } catch (err) {
-      console.log(err); 
+      console.log(err);
     }
   };
   return (
     <div className="navbar bg-base-300">
       <div className="flex-1">
-        <Link to={"/"} className="btn btn-ghost text-xl">
+        <div className="flex items-center text-3xl font-bold">
+          <Link to={"/"} className="flex items-center">
+            {" "}
+            <FaLaptopCode className="text-blue-500 mr-2 mt-1" />
+            DevZunder 
+          </Link>
+        </div>
+
+        {/* <Link to={"/"} className="btn btn-ghost text-xl">
           👨🏻‍💻DevZunder
-        </Link>
+        </Link> */}
       </div>
       {user && (
         <div className="flex-none gap-2">
@@ -58,6 +69,9 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to={"/requests"}>Requests</Link>
+              </li>
+              <li>
+                <Link to={"/premium"}>Premium</Link>
               </li>
               <li>
                 <a onClick={handleLogout}>Logout</a>

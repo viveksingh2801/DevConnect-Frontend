@@ -215,7 +215,8 @@ const EditProfile = ({ user }) => {
                     onChange={(e) => setPhotoUrl(e.target.value)}
                   />
                 </label>
-                <label className="form-control w-full max-w-xs my-2">
+                <div className="flex gap-2">
+                <label className="form-control w-full max-w-xs my-2 ">
                   <div className="label">
                     <span className="label-text">Age:</span>
                   </div>
@@ -237,6 +238,7 @@ const EditProfile = ({ user }) => {
                     onChange={(e) => setGender(e.target.value)}
                   />
                 </label>
+                </div>
                 <label className="form-control w-full max-w-xs my-2">
                   <div className="label">
                     <span className="label-text">About:</span>
@@ -251,7 +253,7 @@ const EditProfile = ({ user }) => {
               </div>
               <p className="text-red-500">{error}</p>
               <div className="card-actions justify-center m-2">
-                <button className="btn btn-primary" onClick={saveProfile}>
+                <button className="btn btn-primary w-full" onClick={saveProfile}>
                   Save Profile
                 </button>
               </div>
